@@ -7,12 +7,37 @@
 
 function initMap() {
     var myCenter = new google.maps.LatLng(29.667418,-95.049149);
+    var styles = [//sytles
+                  {
+                    featureType: "landscape",
+                    stylers: [
+                            { color: '#85f300' }
+                    ]
+            },{
+                    featureType: "natural",
+                    stylers: [
+                            { hue: '#ff0000' }
+                    ]
+            },{
+                    featureType: "road",
+                    stylers: [
+                            { hue: '#5500aa' },
+                            { saturation: -100 }
+                    ]
+            },{
+                    featureType: "building",
+                    elementType: "labels",
+                    stylers: [
+                            { hue: '#000066' }
+                    ]
+            }
+    ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
-       center: myCenter,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        zoom: 9,
-
+         center: myCenter,
+         mapTypeId: google.maps.MapTypeId.ROADMAP,
+         zoom: 9,
+         styles: styles
     });
 
 
@@ -21,7 +46,7 @@ function initMap() {
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
 
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
     var infowindow = new google.maps.InfoWindow();
     var infowindowContent = document.getElementById('infowindow-content');
