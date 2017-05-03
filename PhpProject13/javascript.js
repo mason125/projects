@@ -44,10 +44,11 @@ function initMap() {
     var input = document.getElementById('pac-input');
 
     var autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.bindTo('bounds', map);
 
+    //set input box in the top right hand corner
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
+    //infowindo content
     var infowindow = new google.maps.InfoWindow();
     var infowindowContent = document.getElementById('infowindow-content');
     infowindow.setContent(infowindowContent);
@@ -57,6 +58,7 @@ function initMap() {
     marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
+
 
     autocomplete.addListener('place_changed', function() {
       infowindow.close();
@@ -80,9 +82,7 @@ function initMap() {
       marker.setVisible(true);
 
       infowindowContent.children['place-name'].textContent = place.name;
-      infowindowContent.children['place-id'].textContent = place.place_id;
-      infowindowContent.children['place-address'].textContent =
-          place.formatted_address;
+      infowindowContent.children['place-address'].textContent = place.formatted_address;
       infowindow.open(map, marker);
     });
   }

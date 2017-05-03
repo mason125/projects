@@ -11,17 +11,12 @@
     <input id="pac-input" class="controls" type="text"
         placeholder="Enter a location">
     <div id="map"></div>
+    
     <div id="infowindow-content">
       <span id="place-name"  class="title"></span><br>
-      Place ID <span id="place-id"></span><br>
       <span id="place-address"></span>
     </div>
 
-    <script>
-
-
-      
-    </script>
     <script src="https://maps.googleapis.com/maps/api/js?AIzaSyCGb2PL05AwjaPXk0GZfbKAoLOWYgYKxkA&callback&libraries=places&callback=initMap"
         async defer></script>
   </body>
