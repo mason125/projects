@@ -33,6 +33,7 @@ function initMap() {
             }
     ];
 
+    //mapOption short and version 
     var map = new google.maps.Map(document.getElementById('map'), {
          center: myCenter,
          mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -57,6 +58,7 @@ function initMap() {
     });
     marker.addListener('click', function() {
       infowindow.open(map, marker);
+      
     });
 
 
@@ -71,7 +73,7 @@ function initMap() {
         map.fitBounds(place.geometry.viewport);
       } else {
         map.setCenter(place.geometry.location);
-        map.setZoom(17);
+        map.setZoom(9);
       }
 
       // Set the position of the marker using the place ID and location.
@@ -79,8 +81,9 @@ function initMap() {
         placeId: place.place_id,
         location: place.geometry.location
       });
-      marker.setVisible(true);
+      
 
+      
       infowindowContent.children['place-name'].textContent = place.name;
       infowindowContent.children['place-address'].textContent = place.formatted_address;
       infowindow.open(map, marker);

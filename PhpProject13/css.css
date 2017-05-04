@@ -8,12 +8,10 @@ html, body {
     padding: 0;
 }
 .controls {
-    background-color: #fff;
     height: 29px;
     margin-left: 17px;
     margin-top: 10px;
     text-overflow: ellipsis;
-    width: 400px;
 }
 
      
